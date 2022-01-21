@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:poolr/ui/auth/signinpage.dart';
+
+import 'auth/signuppage.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -36,50 +39,71 @@ class _WelcomePageState extends State<WelcomePage> {
                 )
               ],
             ),
-            Container(
-              height: MediaQuery.of(context).size.height/3,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/images/car_illustration_one.jpg')
+            // Container(
+            //   height: MediaQuery.of(context).size.height/3,
+            //   decoration: const BoxDecoration(
+            //     image: DecorationImage(
+            //       image: AssetImage('assets/images/car_illustration_one.jpg')
+            //     )
+            //   ),
+            // ),
+            Column(
+              children: [
+                MaterialButton(
+                  minWidth: double.infinity,
+                  height: 60,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) {
+                            return const SignInPage();
+                          }
+                      )
+                    );
+                  },
+                  color: Colors.indigoAccent[400],
+                  shape: RoundedRectangleBorder(
+                      side: const BorderSide(
+                        color: Colors.black,
+                      ),
+                      borderRadius: BorderRadius.circular(40)
+                  ),
+                  child: const Text(
+                    "Login",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                        color: Colors.white70
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 30,),
+                MaterialButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context, 
+                      MaterialPageRoute(builder: (context) {
+                        return const SignUpPage();
+                      })
+                    );
+                  },
+                  minWidth: double.infinity,
+                  height: 60,
+                  color: Colors.redAccent,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(40)
+                  ),
+                  child: const Text(
+                    "Sign Up",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                    ),
+                  ),
                 )
-              ),
+              ],
             ),
-            MaterialButton(
-              minWidth: double.infinity,
-              height: 60,
-              onPressed: () {},
-              color: Colors.indigoAccent[400],
-              shape: RoundedRectangleBorder(
-                side: const BorderSide(
-                  color: Colors.black,
-                ),
-                borderRadius: BorderRadius.circular(40)
-              ),
-              child: const Text(
-                "Login",
-                style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16,
-                  color: Colors.white70
-                ),
-              ),
-            ),
-            MaterialButton(
-              onPressed: () {},
-              minWidth: double.infinity,
-              height: 60,
-              color: Colors.redAccent,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(40)
-              ),
-              child: const Text(
-                "Sign Up",
-                style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16,
-                ),
-              ),
-            )
           ],
         ),
       ),
